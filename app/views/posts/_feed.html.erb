@@ -1,0 +1,9 @@
+<div class="box">   
+    <%= render 'form'%>
+</div>
+
+<% @posts.each do |post|%> 
+    <div class="box">   
+        <p><%= post.post %></p>
+    </div>
+<% end %>
