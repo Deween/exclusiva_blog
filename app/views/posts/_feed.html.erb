@@ -1,9 +1,24 @@
-<div class="box">   
-    <%= render 'form'%>
-</div>
+<%# Below view is for the posts placed in a box, the ability to put a new post is also embedded here %>
+<%# <div class="column">
+    <div class="columns is-centered"> %>
+        <div class="column is-half">  
+            <div class= "box">
+                <%= render 'form'%>
+            </div>  
+            <% @posts.each do |post| %>
+            <div class="box">   
+                <article class="media"> 
+                    <div class="media-content"> 
+                        <div class="content"> 
+                            <strong> Username </strong>
+                            <small> @Handle </small>
+                            <p> <%= post.post %> </p>
+                        </div>   
+                    </div>   
 
-<% @posts.each do |post|%> 
-    <div class="box">   
-        <p><%= post.post %></p>
-    </div>
-<% end %>
+                </article>
+            </div>
+            <% end %>
+        </div>
+    <%# </div>
+</div> %>
