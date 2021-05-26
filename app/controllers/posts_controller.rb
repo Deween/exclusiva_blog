@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     end
 
     def edit
-        @post = Post.new
+        @post = Post.find(params[:id])
     end
 
     def update
@@ -42,10 +42,21 @@ class PostsController < ApplicationController
 
     end
 
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+        respond_to do |format|
+            format.html {
+                redirect_to root_path, notice: "Post was successfully destroyed."
+            }
+        end
+
+    end
+
     private
 
     def post_params
-        params.require(:post).permit(:post)
+        params.require(:post).permit(:post,:title)
     end
 
 

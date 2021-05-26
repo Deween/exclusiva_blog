@@ -1,10 +1,30 @@
-<%= simple_form_for @post do |f| %>
+<%= simple_form_for(@post) do |f| %>
 <%= f.error_notification %>
 <div class="field"> 
-    <div class="control">   
-      <%= f.input :post, label: "Post anything you like :) We like funny stuff", input_html: { class: "textarea" }, label_html: {class: "label"},placeholder: "Write your post here", autofocus: true, wrapper: false %>
+    <div class="control"> 
+    <h1 class="title">Make an Exclusiva Post :)</h1> 
+    <% if request.original_fullpath == new_post_path || request.original_fullpath == root_path  %>
+
+      <%= f.input :title, label: "Title", input_html: { class: "text"}, label_html: {class: "label"},placeholder: "Title", autofocus: true, wrapper: false  %>
+      <br>
+      <br>
+      <%= f.input :post, label: "Content", input_html: { class: "textarea" }, label_html: {class: "label"},placeholder: "Text", autofocus: true, wrapper: false %>
+
+      <%= f.button :submit %>
+    
+    <% else %>
+      <%= f.input :title, label: "Title", input_html: { class: "text"}, label_html: {class: "label"},placeholder: "Title", autofocus: true, wrapper: false  %>
+      
+      <%= f.input :post, label: "Change your post:", input_html: { class: "textarea" }, label_html: {class: "label"}, autofocus: true, wrapper: false %>
+
+      <%= f.button :submit , "Edit Post" %>
+    <% end %>
+  
+    
+
     </div>
 </div>
 
-<%= f.button :submit %>
+
 <% end %>
+
