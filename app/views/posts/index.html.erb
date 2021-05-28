@@ -1,8 +1,12 @@
 <section class="section">
     <div class="container">         
        <div class="columns"> 
-        <%= render 'trends' %>  
-
+       <div class="column is-one-quarter">
+            <%= render 'trends' %>
+            <% if user_signed_in? %>
+                <%= render 'profile' %>
+            <%end%>  
+        </div>
         <%= render 'feed' %>
         <%= render 'suggestions' %>
              

@@ -3,10 +3,15 @@
     <div class="columns is-centered"> %>
         <div class="column is-half">  
             <%= render "flash" %>
-            <div class= "box">
-                <%= render 'form'%>
-            </div>  
-            
+            <%if user_signed_in?%>
+                <div class= "box">
+                    <%= render 'form'%>
+                </div> 
+            <% else %> 
+                <div class= "box level-item has-centered-text">
+                    <h1 class="title">Sign Up or Log In to Make a Post</h1>
+                </div> 
+            <% end %>           
             <% @posts.each do |post| %>
             <div class="box">   
                 <article class="media"> 
