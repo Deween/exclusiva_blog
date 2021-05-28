@@ -1,24 +1,5 @@
-# README
+Exclusiva
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple blog app that is that is exclusive to its users. You can sign up and create your own posts, edit and delete them. However, if you are not logged in you cannot see other users but only there posts. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This was an exercises in learning how to user Devise in an effective manner for user functionality. 
