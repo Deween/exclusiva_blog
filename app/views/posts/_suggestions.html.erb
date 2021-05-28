@@ -1,10 +1,15 @@
 <div class="column is-one-quarter">
     <nav class="panel">
         <p class="panel-heading">Suggestions</p>
-        <a class="panel-block"> Jonh David</a>
-        <a class="panel-block"> Jonh David</a>
-        <a class="panel-block"> Jonh David</a>
-        <a class="panel-block"> Jonh David</a>
+        <% if user_signed_in? %>
+            <% @users.first(5).each do |user| %>
+                <% if user != current_user %>
+                    <a class="panel-block"> <%= user.username %></a>
+                <% end %>
+            <% end %>
+        <% else %>
+            <a class="panel-block">Sign Up or Log In to see users </a>
+        <% end %>
         
     </nav>
 

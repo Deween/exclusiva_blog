@@ -3,20 +3,17 @@
         <p class="panel-heading">   
             Trends
         </p>
-        <a class="panel-block">
-            Trend 1
-        </a>
-        <a class="panel-block">
-            Trend 2
-        </a>
-        <a class="panel-block">
-            Trend 3
-        </a>
-        <a class="panel-block">
-            Trend 4
-        </a>
+    <% @posts.first(5).each do |post| %>
+        <p class="panel-block">
+            <%= link_to post.title, post %>
+        </p>
+    <% end %>
         
     </nav>
+    <nav class="panel"> 
+         <%= render 'profile' %>
+    </nav>
+    
 </div>
 
 

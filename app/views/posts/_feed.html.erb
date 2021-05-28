@@ -2,22 +2,29 @@
 <%# <div class="column">
     <div class="columns is-centered"> %>
         <div class="column is-half">  
+            <%= render "flash" %>
             <div class= "box">
                 <%= render 'form'%>
             </div>  
+            
             <% @posts.each do |post| %>
             <div class="box">   
                 <article class="media"> 
                     <div class="media-content"> 
                         <div class="content"> 
-                            <strong> Username </strong>
-                            <small> @Handle </small>  
+                        <% if user_signed_in? %>
+                            <strong> <%= post.user.name %> </strong>
+                            <small> <%= post.user.username %></small>
+                        <% else %>
+                            <strong>Sign up or Log In to see author</strong>
+                        <% end %>  
                             <h4> <%= post.title %> </h4>
                             <p> <%= post.post %> </p>
-                        </div>   
+                        </div>
                     </div> 
                     <nav class="level">  
                         <div class = "level-left is-mobile">
+                        <% if user_signed_in? && current_user.id == post.user_id %>
                             <%= link_to edit_post_path(post), class: "level-item" do %>
                                 <span class= "icon">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -28,6 +35,7 @@
                                     <i class="fa fa-trash-o"></i>
                                 </span>
                             <% end %>
+                        <% end %>
                         </div>
                     </nav>
                 </article>

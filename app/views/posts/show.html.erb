@@ -1,0 +1,22 @@
+<section class="section">
+    <div class="container">         
+       <div class="columns is-centered"> 
+            <div class="box">   
+                <article class="media"> 
+                    <div class="media-content"> 
+                        <div class="content"> 
+                            <% if user_signed_in? %>
+                            <strong><%= @post.user.name%></strong>
+                            <small> <%= @post.user.username%></small>
+                            <%else%>
+                            <strong>Log In or Sign Up to see author</strong>
+                            <%end%>
+                            <h1 class="title-3"> <%= @post.title %></h1> <br>
+                            <p ><%= @post.post %></p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+       </div>      
+    </div> 
+</section>

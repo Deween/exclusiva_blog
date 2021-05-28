@@ -1,16 +1,20 @@
 class PostsController < ApplicationController
+    # before_action :set_post
+    # before_action :authenticate_user!, except: [:index, :show]
+
 
     def index
         @posts = Post.all
+        @users = User.all
         @post = Post.new #=> uncomment this when you neeed it
     end
 
     def new
-        @post = Post.new
+        @post = current_user.posts.build
     end 
 
     def create
-        @post = Post.new(post_params)
+        @post = current_user.posts.build(post_params)
 
         #respond_to allows you to respond in different formats, such as html, json
         respond_to do |format|
@@ -25,6 +29,7 @@ class PostsController < ApplicationController
     end
 
     def show
+        @post = Post.find(params[:id])
     end
 
     def edit

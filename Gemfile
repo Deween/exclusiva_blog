@@ -28,6 +28,7 @@ gem 'bulma-rails', '~> 0.9.1'
 gem 'simple_form', '~> 5.1'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'devise', '~> 4.8'
+gem 'rails_refactor', '~> 1.4', '>= 1.4.6'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
